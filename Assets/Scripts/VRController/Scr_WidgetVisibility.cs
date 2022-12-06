@@ -18,13 +18,17 @@ public class Scr_WidgetVisibility : MonoBehaviour
     {
         if (Vector3.Dot(-transform.forward, (m_MainCamera.transform.position - transform.position).normalized) > 0.7)
         {
-            GetComponent<MeshRenderer>().enabled = true;
-            GetComponent<Canvas>().enabled = true;
+            if (GetComponent<MeshRenderer>() != null)
+                GetComponent<MeshRenderer>().enabled = true;
+            else if (GetComponent<Canvas>() != null)
+                GetComponent<Canvas>().enabled = true;
         }
         else
         {
-            GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<Canvas>().enabled = false;
+            if (GetComponent<MeshRenderer>() != null)
+                GetComponent<MeshRenderer>().enabled = false;
+            else if (GetComponent<Canvas>() != null)
+                GetComponent<Canvas>().enabled = false;
         }
     }
 }
