@@ -12,7 +12,7 @@ public class Scr_Controller : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Matrix4x4 m = Matrix4x4.identity;
         RootNode.CompositeXform(ref m);

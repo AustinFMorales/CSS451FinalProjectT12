@@ -6,6 +6,9 @@ public class Scr_SundialInteractable : MonoBehaviour
 {
     public float m_Radius;
     public Transform m_Sphere;
+    public SceneNode m_Parent;
+
+    bool m_Started = false;
 
     // Start is called before the first frame update
     void Start()
@@ -13,12 +16,23 @@ public class Scr_SundialInteractable : MonoBehaviour
         m_Sphere = transform.Find("Sundial Sphere");
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        if (!m_Started)
+        {
+            SelectExited();
+            m_Started = true;
+        }
+    }
+
+    // Update is called once per frame
+    public void SelectExited()
     {
         Vector3 OriginToSphere = new Vector3(m_Sphere.localPosition.x, 0.0f, m_Sphere.localPosition.z).normalized;
         OriginToSphere *= m_Radius;
         m_Sphere.localPosition = OriginToSphere;
+
+        transform.localPosition = m_Parent.mCombinedParentXform.GetColumn(3);
     }
 
     public float GetRotation()

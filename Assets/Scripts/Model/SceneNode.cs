@@ -9,7 +9,7 @@ public class SceneNode : MonoBehaviour
     // the later examples use scenenode for physics (catapulting objects and moving arms)
     // the definitions of SceneNode and NodePrimitive are from 
     // Professor Sung's repo - Week5 Ex1 - SceneNode
-    protected Matrix4x4 mCombinedParentXform;
+    public Matrix4x4 mCombinedParentXform;
     
     // origin of this scenenode
     public Vector3 NodeOrigin = Vector3.zero;
